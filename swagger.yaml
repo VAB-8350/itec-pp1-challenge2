@@ -3,26 +3,25 @@ info:
   description: ""
   version: "1.0.0"
   title: "Swagger Petstore"
-host: "petstore.swagger.io"
-basePath: "/v2"
+host: "localhost:4000"
+basePath: "/v1"
 tags:
-- name: "pet"
-  description: "Everything about your Pets"
+- name: "tareas"
+  description: "operaciones sobre tareas"
 schemes:
 - "http"
 paths:
-  /pet:
+  /task:
     post:
       tags:
-      - "pet"
-      summary: "Add a new pet to the store"
-      description: ""
+      - "tareas"
+      summary: "Add a new task"
+      description: "add new task"
       operationId: "addPet"
       consumes:
       - "application/json"
       - "application/xml"
       produces:
-      - "application/xml"
       - "application/json"
       parameters:
       - in: "body"
@@ -36,12 +35,11 @@ paths:
           description: "Invalid input"
     get:
       tags:
-      - "pet"
-      summary: "Finds Pets by status"
-      description: "Multiple status values can be provided with comma separated strings"
+      - "tareas"
+      summary: "return json of task"
+      description: "return json of task"
       operationId: "findPetsByStatus"
       produces:
-      - "application/xml"
       - "application/json"
       parameters:
       - name: "status"
@@ -66,12 +64,12 @@ paths:
               $ref: "#/definitions/Pet"
         "400":
           description: "Invalid status value"
-  /pet/{petId}:
+  /task/{petId}:
     get:
       tags:
-      - "pet"
-      summary: "Find pet by ID"
-      description: "Returns a single pet"
+      - "tareas"
+      summary: "return task for id"
+      description: "return task for id"
       operationId: "getPetById"
       produces:
       - "application/xml"
@@ -94,14 +92,13 @@ paths:
           description: "Pet not found"
     put:
       tags:
-      - "pet"
-      summary: "Updates a pet in the store with form data"
-      description: ""
+      - "tareas"
+      summary: "edit one task"
+      description: "edit task"
       operationId: "updatePetWithForm"
       consumes:
       - "application/x-www-form-urlencoded"
       produces:
-      - "application/xml"
       - "application/json"
       parameters:
       - name: "petId"
@@ -125,12 +122,11 @@ paths:
           description: "Invalid input"
     delete:
       tags:
-      - "pet"
-      summary: "Deletes a pet"
-      description: ""
-      operationId: "deletePet"
+      - "tareas"
+      summary: "delete task"
+      description: "delete task"
+      operationId: "deletetask"
       produces:
-      - "application/xml"
       - "application/json"
       parameters:
       - name: "api_key"
